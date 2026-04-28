@@ -5,8 +5,8 @@ export async function POST(req: Request) {
   try {
     const payload = await req.json();
 
-    const { name, phone, role, message } = payload ?? {};
-    if (!name || !phone || !role || !message) {
+    const { name, phoneRaw, role, message } = payload ?? {};
+    if (!name || !phoneRaw || !role || !message) {
       return NextResponse.json(
         { ok: false, error: 'Missing required fields' },
         { status: 400 },
