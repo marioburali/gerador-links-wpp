@@ -7,6 +7,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-red-hat-display);
+  --font-body: var(--font-dm-sans);
 }
 
 * {
@@ -35,4 +37,24 @@ a:hover {
 
 ::selection {
   background: rgba(27, 42, 59, 0.16);
+}
+
+@layer components {
+  .text-heading-md {
+    font-family: var(--font-heading), var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .text-body-sm-regular {
+    font-family: var(--font-body), var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-align: center;
+  }
 }

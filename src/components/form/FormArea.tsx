@@ -66,109 +66,112 @@ export default function FormArea({ onSuccess }: Props) {
 
   return (
     <RadialBackground>
-        <p className="text-sm text-[#3D4A56]">
-          Crie seu link de WhatsApp e inicie conversas com um clique nos seus
-          canais digitais.
+      <h1 className="text-heading-md text-[#0A0A0A]">
+        Gerador de Link para WhatsApp
+      </h1>
+      <p className="text-body-sm-regular text-[#3D4A56]">
+        Crie seu link de WhatsApp e inicie conversas com um clique nos seus
+        canais digitais!
+      </p>
+
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+        className="mt-5 space-y-4"
+      >
+        {submitError ? (
+          <div
+            role="alert"
+            className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+          >
+            {submitError}
+          </div>
+        ) : null}
+
+        <Input
+          label="Nome *"
+          placeholder="Seu nome"
+          {...register('name', {
+            required: 'Informe seu nome',
+            minLength: {
+              value: 2,
+              message: 'Informe pelo menos 2 caracteres',
+            },
+          })}
+          error={errors.name?.message ?? null}
+        />
+
+        <PhoneInput
+          label="Numero do WhatsApp *"
+          {...register('phone', {
+            required: 'Informe o telefone',
+            pattern: {
+              value: PHONE_FORMAT_REGEX,
+              message: 'Formato de telefone invalido',
+            },
+            validate: (v) =>
+              PHONE_DIGITS_REGEX.test(normalizePhone(v)) ||
+              'Telefone deve ter 10 ou 11 digitos',
+          })}
+          error={errors.phone?.message ?? null}
+        />
+
+        <Input
+          label="Email *"
+          type="email"
+          placeholder="nome@email.com"
+          {...register('email', {
+            required: 'Informe seu email',
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: 'Informe um email valido',
+            },
+          })}
+          error={errors.email?.message ?? null}
+        />
+
+        <Select
+          label="Cargo *"
+          {...register('role', {
+            required: 'Selecione um cargo',
+            validate: (v) =>
+              JOB_ROLES.includes(v as JobRole)
+                ? true
+                : 'Selecione um cargo valido',
+          })}
+          error={errors.role?.message ?? null}
+        >
+          <option value="">Selecione</option>
+          {JOB_ROLES.map((r) => (
+            <option key={r} value={r}>
+              {r}
+            </option>
+          ))}
+        </Select>
+
+        <Textarea
+          label="Mensagem (Opcional)"
+          rows={4}
+          placeholder="Crie uma mensagem que facilite a interação com os contatos."
+          {...register('message', { required: 'Escreva uma mensagem' })}
+          error={errors.message?.message ?? null}
+        />
+
+        <p className="text-xs leading-5 text-[#414C57]">
+          Ao preencher o formulario, concordo em receber comunicacoes de acordo
+          com meus interesses. Ao informar meus dados, eu reconheco a{' '}
+          <PrivacyLink href="#" />.
         </p>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          noValidate
-          className="mt-5 space-y-4"
-        >
-          {submitError ? (
-            <div
-              role="alert"
-              className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
-            >
-              {submitError}
-            </div>
-          ) : null}
-
-          <Input
-            label="Nome"
-            placeholder="Seu nome"
-            {...register('name', {
-              required: 'Informe seu nome',
-              minLength: {
-                value: 2,
-                message: 'Informe pelo menos 2 caracteres',
-              },
-            })}
-            error={errors.name?.message ?? null}
-          />
-
-          <PhoneInput
-            label="Numero do WhatsApp"
-            {...register('phone', {
-              required: 'Informe o telefone',
-              pattern: {
-                value: PHONE_FORMAT_REGEX,
-                message: 'Formato de telefone invalido',
-              },
-              validate: (v) =>
-                PHONE_DIGITS_REGEX.test(normalizePhone(v)) ||
-                'Telefone deve ter 10 ou 11 digitos',
-            })}
-            error={errors.phone?.message ?? null}
-          />
-
-          <Input
-            label="Email"
-            type="email"
-            placeholder="nome@email.com"
-            {...register('email', {
-              required: 'Informe seu email',
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: 'Informe um email valido',
-              },
-            })}
-            error={errors.email?.message ?? null}
-          />
-
-          <Select
-            label="Cargo"
-            {...register('role', {
-              required: 'Selecione um cargo',
-              validate: (v) =>
-                JOB_ROLES.includes(v as JobRole)
-                  ? true
-                  : 'Selecione um cargo valido',
-            })}
-            error={errors.role?.message ?? null}
-          >
-            <option value="">Selecione</option>
-            {JOB_ROLES.map((r) => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </Select>
-
-          <Textarea
-            label="Mensagem (Opcional)"
-            rows={4}
-            placeholder="Crie uma mensagem que facilite a interacao com os contatos."
-            {...register('message', { required: 'Escreva uma mensagem' })}
-            error={errors.message?.message ?? null}
-          />
-
-          <p className="text-xs leading-5 text-[#414C57]">
-            Ao preencher o formulario, concordo em receber comunicacoes de
-            acordo com meus interesses. Ao informar meus dados, eu reconheco a{' '}
-            <PrivacyLink href="#" />.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
-            <Button type="submit" disabled={loading} className="min-w-[220px]">
-              {loading ? 'Gerando link...' : 'Gerar link gratis'}
-            </Button>
-            <Button type="button" variant="ghost" onClick={() => reset()}>
-              Limpar formulario
-            </Button>
-          </div>
-        </form>
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+          <Button type="submit" disabled={loading} className="min-w-[220px]">
+            {loading ? 'Gerando link...' : 'Gerar link gratis ➔'}
+          </Button>
+          <Button type="button" variant="ghost" onClick={() => reset()}>
+            Limpar formulario
+          </Button>
+        </div>
+      </form>
     </RadialBackground>
   );
 }
