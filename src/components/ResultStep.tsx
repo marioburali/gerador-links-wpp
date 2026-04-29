@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Button from './ui/Button';
 import useClipboard from '../hooks/useClipboard';
