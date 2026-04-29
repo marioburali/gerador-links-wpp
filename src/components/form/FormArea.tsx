@@ -157,10 +157,11 @@ export default function FormArea({ onSuccess }: Props) {
           error={errors.message?.message ?? null}
         />
 
-        <p className="text-xs leading-5 text-[#414C57]">
-          Ao preencher o formulario, concordo em receber comunicacoes de acordo
-          com meus interesses. Ao informar meus dados, eu reconheco a{' '}
-          <PrivacyLink href="#" />.
+        <p className="mx-auto max-w-[420px] text-center text-xs leading-5 text-black">
+          Ao preencher o formulário, concordo em receber comunicações de acordo
+          com meus interesses. Ao informar meus dados, eu concordo com a
+          Política de privacidade. <PrivacyLink href="#" />. *Você pode alterar
+          suas permissões de comunicação a qualquer tempo.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
