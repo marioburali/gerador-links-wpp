@@ -14,22 +14,24 @@ export default function Flow() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-50 p-6">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <h1 className="text-2xl font-semibold">
-            Gerador de link do WhatsApp
+    <div className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-5xl">
+        <div className="mb-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#0066CC]">
+            RD Station
+          </p>
+          <h1 className="mt-2 text-3xl font-black tracking-tight text-[#111111] sm:text-4xl">
+            Gerador de Link para WhatsApp
           </h1>
         </div>
-        <p className="text-sm text-slate-600 mb-6">
-          Preencha os dados abaixo para gerar o link.
-        </p>
 
-        {!waLink ? (
-          <FormStep key={formKey} onSuccess={handleSuccess} />
-        ) : (
-          <ResultStep waLink={waLink} onNew={handleNew} />
-        )}
+        <div className="rounded-2xl bg-white p-5 shadow-[0_18px_50px_rgba(27,42,59,0.12)] ring-1 ring-black/5 sm:p-8">
+          {!waLink ? (
+            <FormStep key={formKey} onSuccess={handleSuccess} />
+          ) : (
+            <ResultStep waLink={waLink} onNew={handleNew} />
+          )}
+        </div>
       </div>
     </div>
   );

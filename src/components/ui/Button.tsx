@@ -7,11 +7,12 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, className = '', variant = 'primary', ...rest }, ref) => {
     const base =
-      'inline-flex items-center justify-center rounded-md font-medium focus:outline-none';
+      'inline-flex items-center justify-center rounded-full font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0066CC]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white';
     const variants: Record<string, string> = {
       primary:
-        'px-4 py-2 bg-sky-600 text-white hover:bg-sky-700 disabled:opacity-50',
-      ghost: 'px-3 py-1 bg-transparent text-slate-700 hover:bg-slate-100',
+        'px-5 py-3 bg-[#1B2A3B] text-white shadow-[0_10px_24px_rgba(27,42,59,0.18)] hover:translate-y-[-1px] hover:bg-[#0f1721] disabled:cursor-not-allowed disabled:opacity-60',
+      ghost:
+        'px-4 py-2 bg-transparent text-[#0066CC] hover:bg-[#EAF2FB] disabled:opacity-60',
     };
 
     return (
