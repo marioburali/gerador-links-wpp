@@ -1,19 +1,19 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Input from './ui/Input';
-import PhoneInput from './ui/PhoneInput';
-import Select from './ui/Select';
-import Textarea from './ui/Textarea';
-import Button from './ui/Button';
-import PrivacyLink from './PrivacyLink';
-import useWhatsAppForm from '../hooks/useWhatsAppForm';
-import { JOB_ROLES, JobRole, FormData as FormDataType } from '../types/form';
+import Input from '../ui/Input';
+import PhoneInput from '../ui/PhoneInput';
+import Select from '../ui/Select';
+import Textarea from '../ui/Textarea';
+import Button from '../ui/Button';
+import PrivacyLink from '../PrivacyLink';
+import useWhatsAppForm from '../../hooks/useWhatsAppForm';
+import { JOB_ROLES, JobRole, FormData as FormDataType } from '../../types/form';
 import {
   normalizePhone,
   PHONE_DIGITS_REGEX,
   PHONE_FORMAT_REGEX,
-} from '../constants/masks';
+} from '../../constants/masks';
 
 type FormValues = {
   name: string;
