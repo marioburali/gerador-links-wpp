@@ -7,6 +7,7 @@ import Select from '../ui/Select';
 import Textarea from '../ui/Textarea';
 import Button from '../ui/Button';
 import PrivacyLink from '../PrivacyLink';
+import RadialBackground from '@/components/ui/RadialBackground';
 import useWhatsAppForm from '../../hooks/useWhatsAppForm';
 import { JOB_ROLES, JobRole, FormData as FormDataType } from '../../types/form';
 import {
@@ -64,12 +65,20 @@ export default function FormArea({ onSuccess }: Props) {
   };
 
   return (
-    <section className="rounded-2xl border border-[#E1E5EA] bg-white p-5 shadow-[0_8px_24px_rgba(16,24,40,0.06)] sm:p-6">
-      <p className="text-sm text-[#3D4A56]">
-        Crie seu link de WhatsApp e inicie conversas com um clique nos seus canais digitais.
+    <RadialBackground>
+      <h1 className="text-heading-md text-[#0A0A0A]">
+        Gerador de Link para WhatsApp
+      </h1>
+      <p className="text-body-sm-regular text-[#3D4A56]">
+        Crie seu link de WhatsApp e inicie conversas com um clique nos seus
+        canais digitais!
       </p>
 
-      <form onSubmit={handleSubmit(onSubmit)} noValidate className="mt-5 space-y-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+        className="mt-5 space-y-4"
+      >
         {submitError ? (
           <div
             role="alert"
@@ -80,17 +89,20 @@ export default function FormArea({ onSuccess }: Props) {
         ) : null}
 
         <Input
-          label="Nome"
+          label="Nome *"
           placeholder="Seu nome"
           {...register('name', {
             required: 'Informe seu nome',
-            minLength: { value: 2, message: 'Informe pelo menos 2 caracteres' },
+            minLength: {
+              value: 2,
+              message: 'Informe pelo menos 2 caracteres',
+            },
           })}
           error={errors.name?.message ?? null}
         />
 
         <PhoneInput
-          label="Numero do WhatsApp"
+          label="Numero do WhatsApp *"
           {...register('phone', {
             required: 'Informe o telefone',
             pattern: {
@@ -105,7 +117,7 @@ export default function FormArea({ onSuccess }: Props) {
         />
 
         <Input
-          label="Email"
+          label="Email *"
           type="email"
           placeholder="nome@email.com"
           {...register('email', {
@@ -119,11 +131,13 @@ export default function FormArea({ onSuccess }: Props) {
         />
 
         <Select
-          label="Cargo"
+          label="Cargo *"
           {...register('role', {
             required: 'Selecione um cargo',
             validate: (v) =>
-              JOB_ROLES.includes(v as JobRole) ? true : 'Selecione um cargo valido',
+              JOB_ROLES.includes(v as JobRole)
+                ? true
+                : 'Selecione um cargo valido',
           })}
           error={errors.role?.message ?? null}
         >
@@ -138,25 +152,27 @@ export default function FormArea({ onSuccess }: Props) {
         <Textarea
           label="Mensagem (Opcional)"
           rows={4}
-          placeholder="Crie uma mensagem que facilite a interacao com os contatos."
+          placeholder="Crie uma mensagem que facilite a interação com os contatos."
           {...register('message', { required: 'Escreva uma mensagem' })}
           error={errors.message?.message ?? null}
         />
 
-        <p className="text-xs leading-5 text-[#414C57]">
-          Ao preencher o formulario, concordo em receber comunicacoes de acordo com meus interesses. Ao informar meus dados, eu reconheco a{' '}
-          <PrivacyLink href="#" />.
+        <p className="mx-auto max-w-[420px] text-center text-xs leading-5 text-black">
+          Ao preencher o formulário, concordo em receber comunicações de acordo
+          com meus interesses. Ao informar meus dados, eu concordo com a
+          Política de privacidade. <PrivacyLink href="#" />. *Você pode alterar
+          suas permissões de comunicação a qualquer tempo.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
           <Button type="submit" disabled={loading} className="min-w-[220px]">
-            {loading ? 'Gerando link...' : 'Gerar link gratis'}
+            {loading ? 'Gerando link...' : 'Gerar link gratis ➔'}
           </Button>
           <Button type="button" variant="ghost" onClick={() => reset()}>
             Limpar formulario
           </Button>
         </div>
       </form>
-    </section>
+    </RadialBackground>
   );
 }
