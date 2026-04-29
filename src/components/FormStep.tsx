@@ -1,7 +1,7 @@
 import React from 'react';
-import FormArea from './FormArea';
-import SalesContentArea from './SalesContentArea';
-import FAQArea from './FAQArea';
+import FormArea from './form/FormArea';
+import SalesContentArea from './form/SalesContentArea';
+import FAQArea from './form/FAQArea';
 
 type Props = {
   onSuccess?: (waLink: string) => void;
