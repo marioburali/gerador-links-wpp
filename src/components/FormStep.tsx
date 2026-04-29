@@ -7,7 +7,11 @@ import Textarea from './ui/Textarea';
 import Button from './ui/Button';
 import useWhatsAppForm from '../hooks/useWhatsAppForm';
 import { JOB_ROLES, JobRole, FormData as FormDataType } from '../types/form';
-import { normalizePhone, PHONE_DIGITS_REGEX, PHONE_FORMAT_REGEX } from '../constants/masks';
+import {
+  normalizePhone,
+  PHONE_DIGITS_REGEX,
+  PHONE_FORMAT_REGEX,
+} from '../constants/masks';
 
 type FormValues = {
   name: string;
@@ -21,11 +25,12 @@ type Props = {
 };
 
 export default function FormStep({ onSuccess }: Props) {
-  const { register, handleSubmit, formState, setError, clearErrors, reset } = useForm<FormValues>({
-    defaultValues: { name: '', phone: '', role: '', message: '' },
-    mode: 'onBlur',
-    shouldFocusError: true,
-  });
+  const { register, handleSubmit, formState, setError, clearErrors, reset } =
+    useForm<FormValues>({
+      defaultValues: { name: '', phone: '', role: '', message: '' },
+      mode: 'onBlur',
+      shouldFocusError: true,
+    });
   const { errors } = formState;
 
   const { submit, loading, error: serverError, waLink } = useWhatsAppForm();
@@ -65,7 +70,10 @@ export default function FormStep({ onSuccess }: Props) {
 
       <Input
         label="Nome"
-        {...register('name', { required: 'Informe seu nome', minLength: { value: 2, message: 'Informe pelo menos 2 caracteres' } })}
+        {...register('name', {
+          required: 'Informe seu nome',
+          minLength: { value: 2, message: 'Informe pelo menos 2 caracteres' },
+        })}
         error={errors.name?.message ?? null}
         placeholder="Seu nome"
       />
@@ -74,13 +82,28 @@ export default function FormStep({ onSuccess }: Props) {
         label="Telefone"
         {...register('phone', {
           required: 'Informe o telefone',
-          pattern: { value: PHONE_FORMAT_REGEX, message: 'Formato de telefone inválido' },
-          validate: (v) => PHONE_DIGITS_REGEX.test(normalizePhone(v)) || 'Telefone deve ter 10 ou 11 dígitos',
+          pattern: {
+            value: PHONE_FORMAT_REGEX,
+            message: 'Formato de telefone inválido',
+          },
+          validate: (v) =>
+            PHONE_DIGITS_REGEX.test(normalizePhone(v)) ||
+            'Telefone deve ter 10 ou 11 dígitos',
         })}
         error={errors.phone?.message ?? null}
       />
 
-      <Select label="Cargo" {...register('role', { required: 'Selecione um cargo', validate: (v) => (JOB_ROLES.includes(v as JobRole) ? true : 'Selecione um cargo válido') })} error={errors.role?.message ?? null}>
+      <Select
+        label="Cargo"
+        {...register('role', {
+          required: 'Selecione um cargo',
+          validate: (v) =>
+            JOB_ROLES.includes(v as JobRole)
+              ? true
+              : 'Selecione um cargo válido',
+        })}
+        error={errors.role?.message ?? null}
+      >
         <option value="">Selecione...</option>
         {JOB_ROLES.map((r) => (
           <option key={r} value={r}>
