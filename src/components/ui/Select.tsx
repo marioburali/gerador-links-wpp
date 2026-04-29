@@ -23,10 +23,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className="flex flex-col gap-1">
         {label ? (
-          <label
-            htmlFor={selectId}
-            className="text-sm font-medium text-slate-700"
-          >
+          <label htmlFor={selectId} className="text-sm font-semibold text-[#111111]">
             {label}
           </label>
         ) : null}
@@ -35,7 +32,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           aria-invalid={!!error}
           aria-describedby={describedBy}
-          className={`border rounded-md px-3 py-2 ${error ? 'border-red-600' : ''} ${className}`}
+          className={`w-full rounded-2xl border border-[#D6DBE1] bg-white px-4 py-3 text-[15px] text-[#111111] shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition focus:border-[#0066CC] focus:ring-2 focus:ring-[#0066CC]/15 ${error ? 'border-red-600 focus:border-red-600 focus:ring-red-100' : ''} ${className}`}
           {...rest}
         >
           {children}
