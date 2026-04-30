@@ -1,73 +1,64 @@
-import React from 'react';
 import Button from '../ui/Button';
 
-const checklist = [
-  'Defina um objetivo unico por mensagem',
-  'Use tom humano e direto',
-  'Inclua CTA claro para resposta',
-  'Evite blocos longos de texto',
-];
-
-const examples = [
-  'Ola! Vi que voce baixou nosso material. Quer que eu te mostre 3 formas de aplicar no seu negocio?',
-  'Oi! Posso te enviar uma proposta rapida com os proximos passos para comecar hoje?',
+const benefitCards = [
+  {
+    icon: 'shortcut.svg',
+    title: 'Atalho rumo às vendas',
+    description:
+      'O Gerador de link do WhatsApp faz com que usuários se transformem em contatos (Leads) e iniciem conversas certeiras com sua marca.',
+  },
+  {
+    icon: 'messagecaptions.svg',
+    title: 'Mensagem automática',
+    description:
+      'Você automatiza mensagens estimulando o início da conversa, o que facilita a vida dos usuários e clientes.',
+  },
+  {
+    icon: 'boltlightning.svg',
+    title: 'Rápido e 100% gratuito',
+    description:
+      'Não sabe como fazer link de WhatsApp? O Gerador da RD Station é fácil de usar e permite gerar links em segundos!',
+  },
 ];
 
 export default function SalesContentArea() {
   return (
-    <section className="p-5">
+    <section className="p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8">
       <img
-        src="./sales_content_img_mobile.png"
-        alt="Mulher mexendo no computador"
+        src="./sales_content_img_tablet.png"
+        alt="Imagem de conteúdo de vendas"
+        className="w-full h-auto rounded-lg sm:rounded-xl md:rounded-1xl object-cover"
       />
-      <div className="mt-10 py-6 rounded-1xl border-2 border-[#7BEFFF] bg-white px-4">
-        <img src="shortcut.svg" alt="ícone atalho" />
-        <h3 className="text-sm py-2 font-bold text-[#111111]">
-          Atalho rumo às vendas
-        </h3>
-        <p className="mt-1 text-sm text-[#334155]">
-          O Gerador de link do WhatsApp faz com que usuários se transformem em
-          contatos (Leads) e iniciem conversas certeiras com sua marca.
-        </p>
+      <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+        {benefitCards.map((card) => (
+          <div
+            key={card.title}
+            className="py-4 sm:py-5 md:py-6 lg:py-8 rounded-lg sm:rounded-xl md:rounded-1xl border-2 border-[#7BEFFF] bg-white px-3 sm:px-4 md:px-5 lg:px-6"
+          >
+            <img src={card.icon} alt={`ícone ${card.title}`} />
+            <h3 className="text-xl sm:text-xl md:text-2xl lg:text-3xl py-2 font-bold text-[#111111]">
+              {card.title}
+            </h3>
+            <p className="mt-1 text-xs sm:text-sm md:text-base text-[#334155]">
+              {card.description}
+            </p>
+          </div>
+        ))}
       </div>
 
-      <div className="mt-8 py-6 rounded-1xl border-2 border-[#7BEFFF] bg-white px-4">
-        <img src="messagecaptions.svg" alt="ícone de mensagem" />
-        <h3 className="text-sm py-2 font-bold text-[#111111]">
-          Mensagem automática
-        </h3>
-        <p className="mt-1 text-sm text-[#334155]">
-          Você automatiza mensagens estimulando o início da conversa, o que
-          facilita a vida dos usuários e clientes.
-        </p>
-      </div>
-
-      <div className="mt-8 py-6 rounded-1xl border-2 border-[#7BEFFF] bg-white px-4">
-        <img src="boltlightning.svg" alt="ícone atalho" />
-        <h3 className="text-sm py-2 font-bold text-[#111111]">
-          Rápido e 100% gratuito
-        </h3>
-        <p className="mt-1 text-sm text-[#334155]">
-          Não sabe como fazer link de WhatsApp? O Gerador da RD Station é fácil
-          de usar e permite gerar links em segundos!
-        </p>
-      </div>
-
-      <div className="mt-30">
-        <h1 className="text-heading-md text-[#0A0A0A] text-left">
-          Acelere suas <br />
-          conversas com o <br />
-          <span className="relative inline-block">
+      <div className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-[#0A0A0A] text-left">
+          Acelere suas conversas com o
+          <span className="relative inline-block whitespace-nowrap">
             Gerador de link de
-            <span className="absolute left-0 bottom-1 -z-10 h-3 w-full rounded-full bg-[#7BEFFF]" />
+            <span className="absolute left-0 bottom-0.5 sm:bottom-1 md:bottom-2 -z-10 h-2 sm:h-2.5 md:h-3 lg:h-4 w-full rounded-full bg-[#7BEFFF]" />
           </span>
-          <br />
-          <span className="relative inline-block">
+          <span className="relative inline-block whitespace-nowrap">
             WhatsApp
-            <span className="absolute left-0 bottom-1 -z-10 h-3 w-full rounded-full bg-[#C7F231]" />
+            <span className="absolute left-0 bottom-0.5 sm:bottom-1 md:bottom-2 -z-10 h-2 sm:h-2.5 md:h-3 lg:h-4 w-full rounded-full bg-[#C7F231]" />
           </span>
         </h1>
-        <p className="mt-10 text-body-sm-regular text-[#3D4A56] text-left">
+        <p className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 text-sm sm:text-base md:text-lg text-[#3D4A56] text-left">
           O WhatsApp é uma das plataformas preferidas pelos brasileiros —{' '}
           <span className="font-bold">
             são mais de 165 milhões de usuários*
@@ -76,11 +67,11 @@ export default function SalesContentArea() {
           traz um link de WhatsApp nas redes sociais ou site da sua empresa, só
           tem vantagens:
         </p>
-        <p className="mt-4 text-left text-xs italic text-[#3D4A56]">
+        <p className="mt-3 sm:mt-4 md:mt-5 text-left text-xs sm:text-sm italic text-[#3D4A56]">
           *Dados da pesquisa Digital 2022: Brazil
         </p>
-        <div className="mt-10 flex flex-col items-start">
-          <ul className="space-y-2">
+        <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 flex flex-col items-start">
+          <ul className="space-y-2 sm:space-y-3 md:space-y-4">
             <li className="flex items-start gap-3">
               <img src="check-circle.svg" alt="" className="mt-0.5" />
               <p className="text-body-sm-regular text-[#3D4A56] text-left">
@@ -104,7 +95,11 @@ export default function SalesContentArea() {
             </li>
           </ul>
         </div>
-        <Button type="button" scrollToForm className="mt-10 min-w-[220px]">
+        <Button
+          type="button"
+          scrollToForm
+          className="mt-8 sm:mt-10 md:mt-12 lg:mt-14"
+        >
           {'Gere seu link gratis ➔'}
         </Button>
       </div>

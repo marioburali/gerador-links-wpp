@@ -7,8 +7,8 @@ export default function Header() {
           alt="Logo RD Station"
           className="h-10 w-auto mx-auto md:mx-0 md:h-12"
         />
-        <span className="hidden md:inline text-sm font-semibold text-[#111111]">
-          Gerador de link
+        <span className="hidden md:inline text-xl font-semibold text-[#111111]">
+          Gerador link do WhatsApp
         </span>
       </div>
     </header>
