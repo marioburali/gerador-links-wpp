@@ -13,7 +13,7 @@ export default function PrivacyLink({ href }: Props) {
       href={url}
       target="_blank"
       rel="noreferrer"
-      className="text-[14px] font-bold"
+      className="text-[12px] font-bold"
       style={{ color: '#3A4149' }}
     >
       Política de Privacidade

@@ -9,26 +9,26 @@ const examples = [
 
 export default function MessageExamples() {
   return (
-    <section className="py-8 bg-[#F8FAFA]">
-      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
-        <h1 className="text-heading-md text-[#0A0A0A] p-4">
+    <section className="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 bg-[#F8FAFA]">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] p-2 sm:p-3 md:p-4">
           Exemplos de mensagem para WhatsApp
         </h1>
 
-        <div className="mt-3 space-y-5">
+        <div className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
           {examples.map((ex, index) => (
             <blockquote
               key={ex}
-              className="px-4 py-6 text-[16px] text-[#334155] rounded-2xl border-1 border-[#7BEFFF] bg-white border-[#F1F3F5]"
+              className="h-full px-3 sm:px-4 md:px-4 lg:px-5 py-3 sm:py-4 md:py-5 text-[11px] sm:text-xs md:text-sm lg:text-base leading-relaxed text-[#334155] rounded-lg sm:rounded-xl md:rounded-2xl border border-[#7BEFFF] bg-white"
             >
-              <h3 className="text-lg font-bold text-[20px] text-[#005A87] mb-4">
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-[#005A87] mb-2 sm:mb-3 md:mb-4">
                 Opção {index + 1}
               </h3>
               {ex}
             </blockquote>
           ))}
         </div>
-        <div className="mt-6 flex justify-center">
+        <div className="mt-6 sm:mt-8 md:mt-10 flex justify-center">
           <Button type="button" scrollToForm>
             {'Gere seu link gratis ➔'}
           </Button>

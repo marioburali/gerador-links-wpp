@@ -16,7 +16,7 @@ export default function DropdownItem({
   return (
     <details open={open} className="rounded-2xl border border-[#00D4FF] p-4">
       <summary
-        className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-[#0F1E2D]"
+        className="flex cursor-pointer list-none items-center justify-between gap-2 sm:gap-3 md:gap-4 font-semibold text-xs sm:text-sm md:text-base text-[#0F1E2D]"
         onClick={(event) => {
           event.preventDefault();
           onToggle();
@@ -26,7 +26,7 @@ export default function DropdownItem({
         <svg
           aria-hidden="true"
           viewBox="0 0 20 20"
-          className={`h-5 w-5 shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : 'rotate-0'}`}
+          className={`h-4 sm:h-5 w-4 sm:w-5 shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : 'rotate-0'}`}
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >

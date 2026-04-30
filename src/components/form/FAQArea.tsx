@@ -39,17 +39,17 @@ export default function FAQArea() {
   };
 
   return (
-    <section className="bg-white px-6 pt-6">
-      <div className="mb-4 flex justify-end">
+    <section className="bg-white px-4 sm:px-5 md:px-6 lg:px-8 pt-4 sm:pt-5 md:pt-6 lg:pt-8">
+      <div className="mb-4 sm:mb-5 md:mb-6 flex justify-end">
         <OutlineButton type="button" onClick={handleCloseAll}>
           Fechar todos ➔
         </OutlineButton>
       </div>
-      <h2 className="text-heading-md text-[#000000] text-[24px] text-left py-4">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#000000] text-left py-3 sm:py-4 md:py-5">
         Perguntas mais comuns
       </h2>
 
-      <div className="mt-4 space-y-3">
+      <div className="mt-4 sm:mt-5 md:mt-6 space-y-3 sm:space-y-4 md:space-y-5">
         {faqItems.map((item, index) => (
           <DropdownItem
             key={item.question}
