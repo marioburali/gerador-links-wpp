@@ -9,9 +9,9 @@ const examples = [
 
 export default function MessageExamples() {
   return (
-    <section className="py-6 bg-[#F8FAFA]">
+    <section className="py-8 bg-[#F8FAFA]">
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
-        <h1 className="text-heading-md text-[#0A0A0A] ">
+        <h1 className="text-heading-md text-[#0A0A0A] p-4">
           Exemplos de mensagem para WhatsApp
         </h1>
 

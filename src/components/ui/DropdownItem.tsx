@@ -14,10 +14,7 @@ export default function DropdownItem({
   children,
 }: DropdownItemProps) {
   return (
-    <details
-      open={open}
-      className="rounded-2xl border border-[#DFE5EB] bg-[#FBFCFD] p-4"
-    >
+    <details open={open} className="rounded-2xl border border-[#00D4FF] p-4">
       <summary
         className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-[#0F1E2D]"
         onClick={(event) => {

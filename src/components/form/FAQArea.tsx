@@ -39,13 +39,13 @@ export default function FAQArea() {
   };
 
   return (
-    <section className="bg-white p-6">
+    <section className="bg-white px-6 pt-6">
       <div className="mb-4 flex justify-end">
         <OutlineButton type="button" onClick={handleCloseAll}>
           Fechar todos ➔
         </OutlineButton>
       </div>
-      <h2 className="text-heading-md text-[#000000] text-[24px] left">
+      <h2 className="text-heading-md text-[#000000] text-[24px] text-left py-4">
         Perguntas mais comuns
       </h2>
 
