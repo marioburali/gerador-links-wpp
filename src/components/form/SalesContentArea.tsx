@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../ui/Button';
 
 const checklist = [
   'Defina um objetivo unico por mensagem',
@@ -103,6 +104,9 @@ export default function SalesContentArea() {
             </li>
           </ul>
         </div>
+        <Button type="button" scrollToForm className="mt-10 min-w-[220px]">
+          {'Gere seu link gratis ➔'}
+        </Button>
       </div>
     </section>
   );

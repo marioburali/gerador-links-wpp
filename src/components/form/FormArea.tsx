@@ -66,6 +66,7 @@ export default function FormArea({ onSuccess }: Props) {
 
   return (
     <RadialBackground>
+      <div id="form-area">
       <h1 className="text-heading-md text-[#0A0A0A]">
         Gerador de Link para WhatsApp
       </h1>
@@ -173,6 +174,7 @@ export default function FormArea({ onSuccess }: Props) {
           </Button>
         </div>
       </form>
+      </div>
     </RadialBackground>
   );
 }
