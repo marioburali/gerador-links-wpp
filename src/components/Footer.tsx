@@ -8,7 +8,7 @@ export default function Footer() {
           <PrivacyLink />
         </div>
 
-        <div className="text-xs sm:text-sm md:text-base text-[#3A4149]">© 2026 Resultados Digitais</div>
+        <div className="text-sm text-[#3A4149]">© 2026 Resultados Digitais</div>
       </div>
     </footer>
   );

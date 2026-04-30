@@ -11,9 +11,9 @@ export default function MessageExamples() {
   return (
     <section className="py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 bg-[#F8FAFA]">
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] p-2 sm:p-3 md:p-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] p-2 sm:p-3 md:p-4">
           Exemplos de mensagem para WhatsApp
-        </h1>
+        </h2>
 
         <div className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
           {examples.map((ex, index) => (
