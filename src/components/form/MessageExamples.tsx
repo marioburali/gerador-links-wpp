@@ -1,24 +1,38 @@
 import React from 'react';
+import Button from '../ui/Button';
 
 const examples = [
   'Olá! Obrigado por seu interesse em falar com [Nome da Empresa]. Me conta qual é a sua dúvida para eu lhe fornecer as melhores informações!',
   'Oi, tudo bem? Obrigado por entrar em contato com [Nome da Empresa]. Qual é a sua dúvida? Assim, eu consigo ajudar você rapidamente.',
-  'Olá! Seja bem-vindo a/ao [Nome da Empresa]! Meu nome é [Nome do Atendente], irei fazer o seu atendimento hoje. Me conta como posso ajudar você! 😍'
+  'Olá! Seja bem-vindo a/ao [Nome da Empresa]! Meu nome é [Nome do Atendente], irei fazer o seu atendimento hoje. Me conta como posso ajudar você! 😍',
 ];
 
 export default function MessageExamples() {
   return (
-    <section className="rounded-2xl border border-[#DCE3EA] bg-white p-5 shadow-[0_8px_24px_rgba(16,24,40,0.04)] sm:p-6">
-      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#0066CC]">Exemplos prontos</p>
-      <h3 className="mt-2 text-lg font-bold text-[#111111]">Modelos de mensagem</h3>
+    <section className="py-8 bg-[#F8FAFA]">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <h1 className="text-heading-md text-[#0A0A0A] p-4">
+          Exemplos de mensagem para WhatsApp
+        </h1>
 
-      <div className="mt-3 space-y-3">
-        {examples.map((ex, index) => (
-          <blockquote key={ex} className="rounded-2xl border border-[#E6EDF3] bg-white px-4 py-3 text-sm text-[#334155]">
-            <h3 className="text-lg font-bold text-[#111111]">Opção {index + 1}</h3>
-            {ex}
-          </blockquote>
-        ))}
+        <div className="mt-3 space-y-5">
+          {examples.map((ex, index) => (
+            <blockquote
+              key={ex}
+              className="px-4 py-6 text-[16px] text-[#334155] rounded-2xl border-1 border-[#7BEFFF] bg-white border-[#F1F3F5]"
+            >
+              <h3 className="text-lg font-bold text-[20px] text-[#005A87] mb-4">
+                Opção {index + 1}
+              </h3>
+              {ex}
+            </blockquote>
+          ))}
+        </div>
+        <div className="mt-6 flex justify-center">
+          <Button type="button" scrollToForm>
+            {'Gere seu link gratis ➔'}
+          </Button>
+        </div>
       </div>
     </section>
   );

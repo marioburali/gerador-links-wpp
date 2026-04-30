@@ -13,7 +13,7 @@ export default function RadialBackground({
     <section
       className="
   relative isolate overflow-hidden rounded-[24px]
-  px-6 py-16
+  px-6 pt-16 pb-0
   bg-gradient-to-r
   from-cyan-200
   via-slate-200

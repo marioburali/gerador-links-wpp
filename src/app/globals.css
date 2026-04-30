@@ -5,8 +5,6 @@
   --foreground: #111111;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-red-hat-display);
   --font-body: var(--font-dm-sans);
 }
@@ -23,7 +21,20 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+p {
+  font-family: var(--font-body);
 }
 
 a {
@@ -41,7 +52,7 @@ a:hover {
 
 @layer components {
   .text-heading-md {
-    font-family: var(--font-heading), var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    font-family: var(--font-heading);
     font-size: 32px;
     font-weight: 700;
     line-height: 1.4;
@@ -50,7 +61,7 @@ a:hover {
   }
 
   .text-body-sm-regular {
-    font-family: var(--font-body), var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
     font-weight: 400;
     line-height: 1.4;

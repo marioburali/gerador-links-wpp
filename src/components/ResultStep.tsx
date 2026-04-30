@@ -38,7 +38,7 @@ export default function ResultStep({ waLink, onNew }: Props) {
 
       <div className="rounded-2xl border border-[#E1E5EA] bg-[#F4F6F8] p-4">
         <p className="mb-3 text-sm font-semibold text-[#111111]">Link URL</p>
-        <pre className="overflow-x-auto rounded-2xl bg-white px-4 py-4 font-mono text-sm text-[#1D2733] shadow-[0_1px_2px_rgba(16,24,40,0.04)]">
+        <pre className="overflow-x-auto rounded-2xl bg-white px-4 py-4 text-sm text-[#1D2733] shadow-[0_1px_2px_rgba(16,24,40,0.04)]">
           {waLink}
         </pre>
       </div>

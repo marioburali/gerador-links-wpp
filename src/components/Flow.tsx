@@ -15,15 +15,18 @@ export default function Flow() {
   };
 
   return (
-    <div className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto w-full max-w-5xl">
+    <div className="min-h-screen py-8">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
         <Header />
-        {!waLink ? (
-          <FormStep key={formKey} onSuccess={handleSuccess} />
-        ) : (
-          <ResultStep waLink={waLink} onNew={handleNew} />
-        )}
       </div>
+
+      {!waLink ? (
+        <FormStep key={formKey} onSuccess={handleSuccess} />
+      ) : (
+        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+          <ResultStep waLink={waLink} onNew={handleNew} />
+        </div>
+      )}
     </div>
   );
 }

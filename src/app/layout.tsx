@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { DM_Sans, Geist, Geist_Mono, Red_Hat_Display } from 'next/font/google';
+import { DM_Sans, Red_Hat_Display } from 'next/font/google';
 import './globals.css';
 
 const redHatDisplay = Red_Hat_Display({

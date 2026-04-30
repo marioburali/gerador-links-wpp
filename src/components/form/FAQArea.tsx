@@ -1,39 +1,64 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import OutlineButton from '../ui/OutlineButton';
+import DropdownItem from '../ui/DropdownItem';
 
 const faqItems = [
   {
-    question: 'Preciso instalar algo para usar o gerador?',
+    question: 'O que é o Gerador de link para WhatsApp?',
     answer:
-      'Nao. Basta preencher o formulario e copiar o link gerado para usar em bio, site, anuncios ou email.',
+      'O plano Light não tem tempo de permanência mínima nem multa por cancelamento. Você pode cancelar quando quiser. Ficaremos tristes, mas você pode cancelar a qualquer momento, com poucos cliques. É só entrar no painel de configurações da sua conta e lá você terá essa opção. O cancelamento da sua conta não acontece de forma automática por falta de uso, por isso, se não quiser mais usar sua conta lembre-se de cancelar para que você não pague se não estiver usando.',
   },
   {
-    question: 'Esse link funciona em celular e desktop?',
+    question: 'Onde posso usar o link do WhatsApp?',
     answer:
-      'Sim. Em dispositivos com WhatsApp instalado ele abre direto no app; no desktop pode abrir no WhatsApp Web.',
+      'O seu link de Whatsapp pode ser usado no link da bio das suas redes sociais, em mensagens de email, chats e qualquer que você possa usar para compartilhar o link direto para o seu WhatsApp.',
   },
   {
-    question: 'Posso editar a mensagem depois de gerar?',
+    question: 'Quais as vantagens de ter um link do seu WhatsApp?',
     answer:
-      'Sim. Ajuste o campo de mensagem e gere novamente para obter um novo link com o texto atualizado.',
+      'O link do WhatsApp permite que você compartilhe o seu contato de WhatsApp de forma prática, com clientes e pessoas interessadas nos seus produtos ou serviços. Dessa forma, você consegue tirar dúvidas, ajudar no processo de compra e estreitar o relacionamento com essas pessoas.',
+  },
+  {
+    question: 'Como gerar link para WhatsApp?',
+    answer:
+      'Para gerar o seu link no WhatsApp usando o gerador, basta acessar a ferramenta, preencher o seu número de WhatsApp e inserir o seu email e o seu cargo. Depois, caso queira, crie uma mensagem que vai facilitar a interação com seus contatos. As informações de email e cargo não aparecem para quem acessar o seu link de WhatsApp, apenas o seu número e mensagem são compartilhados.',
   },
 ];
 
 export default function FAQArea() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleCloseAll = () => {
+    setOpenIndex(null);
+  };
+
+  const toggleItem = (index: number) => {
+    setOpenIndex((current) => (current === index ? null : index));
+  };
+
   return (
-    <section className="rounded-2xl border border-[#E1E5EA] bg-white p-5 shadow-[0_8px_24px_rgba(16,24,40,0.04)] sm:p-6">
-      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#0066CC]">FAQ</p>
-      <h2 className="mt-2 text-2xl font-black tracking-tight text-[#111111]">
-        Perguntas frequentes
+    <section className="bg-white px-6 pt-6">
+      <div className="mb-4 flex justify-end">
+        <OutlineButton type="button" onClick={handleCloseAll}>
+          Fechar todos ➔
+        </OutlineButton>
+      </div>
+      <h2 className="text-heading-md text-[#000000] text-[24px] text-left py-4">
+        Perguntas mais comuns
       </h2>
 
       <div className="mt-4 space-y-3">
-        {faqItems.map((item) => (
-          <details key={item.question} className="rounded-2xl border border-[#DFE5EB] bg-[#FBFCFD] p-4">
-            <summary className="cursor-pointer list-none font-semibold text-[#0F1E2D]">
-              {item.question}
-            </summary>
-            <p className="mt-2 text-sm leading-6 text-[#445466]">{item.answer}</p>
-          </details>
+        {faqItems.map((item, index) => (
+          <DropdownItem
+            key={item.question}
+            title={item.question}
+            open={openIndex === index}
+            onToggle={() => toggleItem(index)}
+          >
+            {item.answer}
+          </DropdownItem>
         ))}
       </div>
     </section>
