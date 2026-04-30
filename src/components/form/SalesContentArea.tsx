@@ -75,7 +75,7 @@ export default function SalesContentArea() {
       </div>
 
       <div className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24 lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)] lg:gap-12 xl:gap-16 lg:items-start">
-        <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-[#0A0A0A] text-left lg:max-w-[10ch]">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-[#0A0A0A] text-left lg:max-w-[10ch]">
           Acelere suas conversas com o
           <span className="relative inline-block whitespace-nowrap">
             Gerador de link de
@@ -85,7 +85,7 @@ export default function SalesContentArea() {
             WhatsApp
             <span className="absolute left-0 bottom-0.5 sm:bottom-1 md:bottom-2 -z-10 h-2 sm:h-2.5 md:h-3 lg:h-4 w-full rounded-full bg-[#C7F231]" />
           </span>
-        </h1>
+        </h2>
 
         <div className="lg:pt-1 lg:max-w-[44rem]">
           <p className="mt-6 sm:mt-8 md:mt-10 lg:mt-0 text-sm sm:text-base md:text-lg text-[#3D4A56] text-left">

@@ -5,13 +5,17 @@ type Props = {
 export default function PrivacyLink({ href }: Props) {
   const url =
     href ||
-    process.env.PRIVACY_URL || '';
+    process.env.NEXT_PUBLIC_PRIVACY_URL || '';
+
+  if (!url) {
+    return null;
+  }
 
   return (
     <a
       href={url}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       className="text-sm font-bold"
       style={{ color: '#3A4149' }}
     >

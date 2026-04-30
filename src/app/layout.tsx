@@ -18,6 +18,23 @@ export const metadata: Metadata = {
   title: 'Gerador de Links do WhatsApp',
   description:
     'Gere links personalizados do WhatsApp para facilitar o contato com seus clientes. Preencha o formulário e obtenha um link pronto para usar em suas campanhas de marketing, redes sociais ou site.',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'Gerador de Links do WhatsApp',
+    description:
+      'Gere links personalizados do WhatsApp para facilitar o contato com seus clientes.',
+    type: 'website',
+    locale: 'pt_BR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gerador de Links do WhatsApp',
+    description:
+      'Gere links personalizados do WhatsApp para facilitar o contato com seus clientes.',
+  },
 };
 
 export default function RootLayout({
