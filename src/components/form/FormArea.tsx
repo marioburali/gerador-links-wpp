@@ -65,8 +65,8 @@ export default function FormArea({ onSuccess }: Props) {
   };
 
   return (
-    <RadialBackground>
-      <div id="form-area">
+    <RadialBackground className="lg:px-10 lg:py-14 xl:py-16 2xl:py-18">
+      <div id="form-area" className="lg:px-30 xl:px-50">
         <h1 className="text-heading-md text-[#0A0A0A]">
           Gerador de Link para WhatsApp
         </h1>
@@ -78,7 +78,7 @@ export default function FormArea({ onSuccess }: Props) {
         <form
           onSubmit={handleSubmit(onSubmit)}
           noValidate
-          className="mt-5 space-y-4"
+          className="mt-5 space-y-4 lg:space-y-5"
         >
           {submitError ? (
             <div
@@ -89,80 +89,83 @@ export default function FormArea({ onSuccess }: Props) {
             </div>
           ) : null}
 
-          <Input
-            label="Nome*"
-            placeholder="Seu nome"
-            {...register('name', {
-              required: 'Informe seu nome',
-              minLength: {
-                value: 2,
-                message: 'Informe pelo menos 2 caracteres',
-              },
-            })}
-            error={errors.name?.message ?? null}
-          />
+          <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
+            <Input
+              label="Nome*"
+              placeholder="Seu nome"
+              {...register('name', {
+                required: 'Informe seu nome',
+                minLength: {
+                  value: 2,
+                  message: 'Informe pelo menos 2 caracteres',
+                },
+              })}
+              error={errors.name?.message ?? null}
+            />
 
-          <PhoneInput
-            label="Numero do WhatsApp*"
-            {...register('phone', {
-              required: 'Informe o telefone',
-              pattern: {
-                value: PHONE_FORMAT_REGEX,
-                message: 'Formato de telefone invalido',
-              },
-              validate: (v) =>
-                PHONE_DIGITS_REGEX.test(normalizePhone(v)) ||
-                'Telefone deve ter 10 ou 11 digitos',
-            })}
-            error={errors.phone?.message ?? null}
-          />
+            <PhoneInput
+              label="Numero do WhatsApp*"
+              {...register('phone', {
+                required: 'Informe o telefone',
+                pattern: {
+                  value: PHONE_FORMAT_REGEX,
+                  message: 'Formato de telefone invalido',
+                },
+                validate: (v) =>
+                  PHONE_DIGITS_REGEX.test(normalizePhone(v)) ||
+                  'Telefone deve ter 10 ou 11 digitos',
+              })}
+              error={errors.phone?.message ?? null}
+            />
+          </div>
 
-          <Input
-            label="Email*"
-            type="email"
-            placeholder="nome@email.com"
-            {...register('email', {
-              required: 'Informe seu email',
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: 'Informe um email valido',
-              },
-            })}
-            error={errors.email?.message ?? null}
-          />
+          <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
+            <Input
+              label="Email*"
+              type="email"
+              placeholder="nome@email.com"
+              {...register('email', {
+                required: 'Informe seu email',
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: 'Informe um email valido',
+                },
+              })}
+              error={errors.email?.message ?? null}
+            />
 
-          <Select
-            label="Cargo*"
-            {...register('role', {
-              required: 'Selecione um cargo',
-              validate: (v) =>
-                JOB_ROLES.includes(v as JobRole)
-                  ? true
-                  : 'Selecione um cargo valido',
-            })}
-            error={errors.role?.message ?? null}
-          >
-            <option value="">Selecione</option>
-            {JOB_ROLES.map((r) => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </Select>
+            <Select
+              label="Cargo*"
+              {...register('role', {
+                required: 'Selecione um cargo',
+                validate: (v) =>
+                  JOB_ROLES.includes(v as JobRole)
+                    ? true
+                    : 'Selecione um cargo valido',
+              })}
+              error={errors.role?.message ?? null}
+            >
+              <option value="">Selecione</option>
+              {JOB_ROLES.map((r) => (
+                <option key={r} value={r}>
+                  {r}
+                </option>
+              ))}
+            </Select>
+          </div>
 
           <Textarea
             label="Mensagem (Opcional)"
             rows={4}
             placeholder="Crie uma mensagem que facilite a interação com os contatos."
-            {...register('message', { required: 'Escreva uma mensagem' })}
-            error={errors.message?.message ?? null}
+            {...register('message')}
           />
 
-          <p className="mx-auto max-w-[420px] text-center text-xs leading-5 text-black">
+          <p className="mx-auto max-w-[660px] text-center text-sm leading-5 text-black">
             Ao preencher o formulário, concordo em receber comunicações de
             acordo com meus interesses. Ao informar meus dados, eu concordo com
-            a Política de privacidade. <PrivacyLink href="#" />. *Você pode
-            alterar suas permissões de comunicação a qualquer tempo.
+            a <PrivacyLink />. *Você pode alterar suas permissões de comunicação
+            a qualquer tempo.
           </p>
 
           <div className="relative flex flex-wrap items-center justify-center gap-3 pt-1 pb-10">

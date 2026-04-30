@@ -28,38 +28,47 @@ const faqItems = [
 ];
 
 export default function FAQArea() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
   const handleCloseAll = () => {
-    setOpenIndex(null);
+    setOpenIndexes([]);
   };
 
   const toggleItem = (index: number) => {
-    setOpenIndex((current) => (current === index ? null : index));
+    setOpenIndexes((current) =>
+      current.includes(index)
+        ? current.filter((openIndex) => openIndex !== index)
+        : [...current, index],
+    );
   };
 
   return (
     <section className="bg-white px-4 sm:px-5 md:px-6 lg:px-8 pt-4 sm:pt-5 md:pt-6 lg:pt-8">
-      <div className="mb-4 sm:mb-5 md:mb-6 flex justify-end">
-        <OutlineButton type="button" onClick={handleCloseAll}>
-          Fechar todos ➔
-        </OutlineButton>
-      </div>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#000000] text-left py-3 sm:py-4 md:py-5">
-        Perguntas mais comuns
-      </h2>
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-10 xl:gap-14 lg:items-start">
+        <h2 className="text-2xl font-bold text-[#000000] text-left py-3 sm:py-4 md:py-5 lg:py-0">
+          Perguntas mais comuns
+        </h2>
 
-      <div className="mt-4 sm:mt-5 md:mt-6 space-y-3 sm:space-y-4 md:space-y-5">
-        {faqItems.map((item, index) => (
-          <DropdownItem
-            key={item.question}
-            title={item.question}
-            open={openIndex === index}
-            onToggle={() => toggleItem(index)}
-          >
-            {item.answer}
-          </DropdownItem>
-        ))}
+        <div>
+          <div className="mb-4 sm:mb-5 md:mb-6 flex justify-end">
+            <OutlineButton type="button" onClick={handleCloseAll}>
+              Fechar todos ➔
+            </OutlineButton>
+          </div>
+
+          <div className="mt-4 sm:mt-5 md:mt-6 space-y-3 sm:space-y-4 md:space-y-5">
+            {faqItems.map((item, index) => (
+              <DropdownItem
+                key={item.question}
+                title={item.question}
+                open={openIndexes.includes(index)}
+                onToggle={() => toggleItem(index)}
+              >
+                {item.answer}
+              </DropdownItem>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

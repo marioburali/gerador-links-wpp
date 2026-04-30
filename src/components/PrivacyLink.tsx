@@ -5,15 +5,14 @@ type Props = {
 export default function PrivacyLink({ href }: Props) {
   const url =
     href ||
-    process.env.NEXT_PUBLIC_PRIVACY_URL ||
-    'https://legal.rdstation.com/pt/privacy-policy/';
+    process.env.PRIVACY_URL || '';
 
   return (
     <a
       href={url}
       target="_blank"
       rel="noreferrer"
-      className="text-[12px] font-bold"
+      className="text-sm font-bold"
       style={{ color: '#3A4149' }}
     >
       Política de Privacidade
