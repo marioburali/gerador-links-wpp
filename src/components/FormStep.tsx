@@ -12,11 +12,19 @@ type Props = {
 export default function FormStep({ onSuccess }: Props) {
   return (
     <div className="space-y-6">
-      <FormArea onSuccess={onSuccess} />
-      <SalesContentArea />
-      <MessageGuide />
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <FormArea onSuccess={onSuccess} />
+      </div>
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <SalesContentArea />
+      </div>
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <MessageGuide />
+      </div>
       <MessageExamples />
-      <FAQArea />
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <FAQArea />
+      </div>
     </div>
   );
 }
