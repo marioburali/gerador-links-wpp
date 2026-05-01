@@ -21,6 +21,7 @@ export default function PromoSection() {
           <a
             href="https://www.rdstation.com/produtos/conversas/"
             target="_blank"
+            rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 text-base font-medium !text-[#005A87]"
           >
             Conheça o RD Station Conversas ➔

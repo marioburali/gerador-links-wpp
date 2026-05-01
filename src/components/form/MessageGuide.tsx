@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const guideItems = [
   'Deixe bem claro de qual empresa se trata, mencione o nome do seu negócio logo na mensagem para reforçar a identificação com a marca.',
   'Informe claramente os próximos passos para evitar ansiedade. Por exemplo, um vendedor entrará em contato? Quanto tempo isso demora?',
@@ -21,9 +23,11 @@ export default function MessageGuide() {
             key={item}
             className="flex items-start gap-2 lg:flex-col lg:items-center lg:px-10 lg:text-center"
           >
-            <img
-              src="check-circle-purple.svg"
+            <Image
+              src="/check-circle-purple.svg"
               alt="ícone check"
+              width={24}
+              height={24}
               className="mt-1 mr-2"
             />
             {item}

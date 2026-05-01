@@ -1,9 +1,9 @@
-import { normalizePhone, PHONE_DIGITS_REGEX } from '../constants/masks';
+import { normalizePhone } from '../constants/masks';
 
 // Gera uma URL no formato: https://wa.me/55XXXXXXXXXX?text=Mensagem%20Formatada
 export function buildWhatsAppLink(rawPhone: string, message: string): string {
   const digits = normalizePhone(rawPhone);
-  if (!PHONE_DIGITS_REGEX.test(digits)) {
+  if (digits.length < 10 || digits.length > 11) {
     throw new Error(
       'Invalid phone number: expected 10 or 11 digits after normalization.',
     );

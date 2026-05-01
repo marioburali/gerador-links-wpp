@@ -1,8 +1,21 @@
 type ZapierResult = {
   ok: boolean;
   status: number;
-  body?: any;
+  body?: unknown;
   error?: string;
+};
+
+const getErrorMessage = (body: unknown, fallback: string) => {
+  if (
+    body &&
+    typeof body === 'object' &&
+    'error' in body &&
+    typeof body.error === 'string'
+  ) {
+    return body.error;
+  }
+
+  return fallback;
 };
 
 export default async function sendToZapier(
@@ -20,10 +33,10 @@ export default async function sendToZapier(
   });
 
   const text = await res.text();
-  let body: any = text;
+  let body: unknown = text;
   try {
     body = JSON.parse(text);
-  } catch (e) {
+  } catch {
     /* keep raw text */
   }
 
@@ -32,7 +45,7 @@ export default async function sendToZapier(
       ok: false,
       status: res.status,
       body,
-      error: body?.error || res.statusText,
+      error: getErrorMessage(body, res.statusText),
     };
   }
 
