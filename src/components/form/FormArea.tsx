@@ -67,10 +67,10 @@ export default function FormArea({ onSuccess }: Props) {
   return (
     <RadialBackground className="lg:px-10 lg:py-14 xl:py-16 2xl:py-18">
       <div id="form-area" className="lg:px-30 xl:px-50">
-        <h1 className="text-heading-md text-[#0A0A0A]">
+        <h1 className="text-heading-md text-[#0A0A0A] lg:text-[40px] xl:text-[48px]">
           Gerador de Link para WhatsApp
         </h1>
-        <p className="text-body-sm-regular text-[#3D4A56]">
+        <p className="text-body-sm-regular text-[#3D4A56] lg:text-xl">
           Crie seu link de WhatsApp e inicie conversas com um clique nos seus
           canais digitais!
         </p>
@@ -161,10 +161,10 @@ export default function FormArea({ onSuccess }: Props) {
             {...register('message')}
           />
 
-          <p className="mx-auto max-w-[660px] text-center text-sm leading-5 text-black">
+          <p className="mx-auto max-w-[660px] text-center text-xs leading-5 text-black">
             Ao preencher o formulário, concordo em receber comunicações de
             acordo com meus interesses. Ao informar meus dados, eu concordo com
-            a <PrivacyLink />. *Você pode alterar suas permissões de comunicação
+            a <PrivacyLink fontSize="text-xs" />. *Você pode alterar suas permissões de comunicação
             a qualquer tempo.
           </p>
 
