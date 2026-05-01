@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Button from '../ui/Button';
 
 const benefitCards = [
@@ -24,9 +25,11 @@ const benefitCards = [
 export default function SalesContentArea() {
   return (
     <section className="p-3 sm:p-4 md:p-5 lg:p-2 xl:p-8">
-      <img
-        src="./sales_content_img_tablet.png"
+      <Image
+        src="/sales_content_img_tablet.png"
         alt="Imagem de conteúdo de vendas"
+        width={653}
+        height={300}
         className="w-full h-auto rounded-lg sm:rounded-xl md:rounded-xl object-cover lg:hidden"
       />
       <div className="mt-6 sm:mt-8 md:mt-10 lg:hidden grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
@@ -35,7 +38,12 @@ export default function SalesContentArea() {
             key={card.title}
             className="py-4 sm:py-5 rounded-lg sm:rounded-xl  border-2 border-[#7BEFFF] bg-white px-3 sm:px-4"
           >
-            <img src={card.icon} alt={`ícone ${card.title}`} />
+            <Image
+              src={`/${card.icon}`}
+              alt={`ícone ${card.title}`}
+              width={24}
+              height={24}
+            />
             <h3 className="sm:text-base md:text-xl py-2 font-bold text-[#000]">
               {card.title}
             </h3>
@@ -50,9 +58,11 @@ export default function SalesContentArea() {
             key={card.title}
             className="h-[226px] rounded-lg border-2 border-[#7BEFFF] bg-white px-3 py-4 flex flex-col justify-start"
           >
-            <img
-              src={card.icon}
+            <Image
+              src={`/${card.icon}`}
               alt={`ícone ${card.title}`}
+              width={20}
+              height={20}
               className="h-5 w-5"
             />
             <h3 className="text-lg xl:text-xl py-2 font-bold text-[#000]">
@@ -64,9 +74,11 @@ export default function SalesContentArea() {
           </div>
         ))}
         <div className="h-[226px] overflow-hidden rounded-lg border-2 border-[#7BEFFF] bg-white">
-          <img
-            src="./sales_content_img_tablet.png"
+          <Image
+            src="/sales_content_img_tablet.png"
             alt="Imagem de conteúdo de vendas"
+            width={653}
+            height={300}
             className="h-full w-full object-cover"
           />
         </div>
@@ -101,14 +113,26 @@ export default function SalesContentArea() {
           <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 flex flex-col items-start">
             <ul className="space-y-2 sm:space-y-3 md:space-y-4">
               <li className="flex items-start gap-3">
-                <img src="check-circle.svg" alt="" className="mt-0.5" />
+                <Image
+                  src="/check-circle.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="mt-0.5"
+                />
                 <p className="sm:text-base md:text-lg text-[#000] text-left">
                   Otimiza a geração de Leads.
                 </p>
               </li>
 
               <li className="flex items-start gap-3">
-                <img src="check-circle.svg" alt="" className="mt-0.5" />
+                <Image
+                  src="/check-circle.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="mt-0.5"
+                />
                 <p className="sm:text-base md:text-lg text-[#000] text-left">
                   Ofereça uma opção rápida e prática para tirar dúvidas sobre
                   produtos e serviços.
@@ -116,7 +140,13 @@ export default function SalesContentArea() {
               </li>
 
               <li className="flex items-start gap-3">
-                <img src="check-circle.svg" alt="" className="mt-0.5" />
+                <Image
+                  src="/check-circle.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="mt-0.5"
+                />
                 <p className="sm:text-base md:text-lg text-[#000] text-left">
                   Oferece uma ótima experiência ao usuário.
                 </p>

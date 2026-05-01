@@ -9,7 +9,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, id, className = '', error, ...rest }, ref) => {
     const autoId = useId();
     const inputId = id ?? autoId;
-    const existingDesc = (rest as any)['aria-describedby'];
+    const existingDesc = rest['aria-describedby'];
     const describedBy = error
       ? [existingDesc, `${inputId}-error`].filter(Boolean).join(' ')
       : existingDesc;

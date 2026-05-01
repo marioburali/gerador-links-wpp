@@ -1,6 +1,8 @@
 'use client';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import Input from '../ui/Input';
 import PhoneInput from '../ui/PhoneInput';
 import Select from '../ui/Select';
@@ -9,28 +11,21 @@ import Button from '../ui/Button';
 import PrivacyLink from '../PrivacyLink';
 import RadialBackground from '@/components/ui/RadialBackground';
 import useWhatsAppForm from '../../hooks/useWhatsAppForm';
-import { jobRoles, JobRole, FormData as FormDataType } from '../../types/form';
 import {
-  normalizePhone,
-  PHONE_DIGITS_REGEX,
-  PHONE_FORMAT_REGEX,
-} from '../../constants/masks';
-
-type FormValues = {
-  name: string;
-  phone: string;
-  email: string;
-  role: JobRole | '';
-  message: string;
-};
+  buildSubmissionPayload,
+  formSchema,
+  type FormValues,
+  jobRoles,
+} from '../../types/form';
 
 type Props = {
   onSuccess?: (waLink: string) => void;
 };
 
 export default function FormArea({ onSuccess }: Props) {
-  const { register, handleSubmit, formState, clearErrors, reset } =
+  const { register, control, handleSubmit, formState, clearErrors, reset } =
     useForm<FormValues>({
+      resolver: zodResolver(formSchema),
       defaultValues: { name: '', phone: '', email: '', role: '', message: '' },
       mode: 'onBlur',
       shouldFocusError: true,
@@ -48,17 +43,7 @@ export default function FormArea({ onSuccess }: Props) {
     clearErrors();
     setSubmitError(null);
 
-    const phoneRaw = normalizePhone(values.phone);
-
-    const payload: FormDataType = {
-      name: values.name.trim(),
-      phone: values.phone,
-      phoneRaw,
-      role: values.role as JobRole,
-      message: values.message.trim(),
-    };
-
-    const res = await submit(payload);
+    const res = await submit(buildSubmissionPayload(values));
     if (!res.ok) {
       setSubmitError(res.error || serverError || 'Falha ao enviar');
     }
@@ -93,29 +78,24 @@ export default function FormArea({ onSuccess }: Props) {
             <Input
               label="Nome*"
               placeholder="Seu nome"
-              {...register('name', {
-                required: 'Informe seu nome',
-                minLength: {
-                  value: 2,
-                  message: 'Informe pelo menos 2 caracteres',
-                },
-              })}
+              required
+              aria-required="true"
+              {...register('name')}
               error={errors.name?.message ?? null}
             />
 
-            <PhoneInput
-              label="Numero do WhatsApp*"
-              {...register('phone', {
-                required: 'Informe o telefone',
-                pattern: {
-                  value: PHONE_FORMAT_REGEX,
-                  message: 'Formato de telefone inválido',
-                },
-                validate: (v) =>
-                  PHONE_DIGITS_REGEX.test(normalizePhone(v)) ||
-                  'Telefone deve ter 10 ou 11 digitos',
-              })}
-              error={errors.phone?.message ?? null}
+            <Controller
+              control={control}
+              name="phone"
+              render={({ field, fieldState }) => (
+                <PhoneInput
+                  label="Numero do WhatsApp*"
+                  required
+                  aria-required="true"
+                  {...field}
+                  error={fieldState.error?.message ?? null}
+                />
+              )}
             />
           </div>
 
@@ -124,25 +104,17 @@ export default function FormArea({ onSuccess }: Props) {
               label="Email*"
               type="email"
               placeholder="nome@email.com"
-              {...register('email', {
-                required: 'Informe seu email',
-                pattern: {
-                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'Informe um email valido',
-                },
-              })}
+              required
+              aria-required="true"
+              {...register('email')}
               error={errors.email?.message ?? null}
             />
 
             <Select
               label="Cargo*"
-              {...register('role', {
-                required: 'Selecione um cargo',
-                validate: (v) =>
-                  jobRoles.includes(v as JobRole)
-                    ? true
-                    : 'Selecione um cargo valido',
-              })}
+              required
+              aria-required="true"
+              {...register('role')}
               error={errors.role?.message ?? null}
             >
               <option value="">Selecione</option>
@@ -184,9 +156,11 @@ export default function FormArea({ onSuccess }: Props) {
             >
               Limpar formulário
             </Button>
-            <img
+            <Image
               src="/whatsapp.svg"
               alt="ícone do WhatsApp"
+              width={140}
+              height={140}
               className="pointer-events-none absolute bottom-[10px] left-5/6 z-0 h-35 -translate-x-1/2"
             />
           </div>

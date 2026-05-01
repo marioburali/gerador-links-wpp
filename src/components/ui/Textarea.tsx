@@ -9,7 +9,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ label, id, className = '', error, ...rest }, ref) => {
     const autoId = useId();
     const textareaId = id ?? autoId;
-    const existingDesc = (rest as any)['aria-describedby'];
+    const existingDesc = rest['aria-describedby'];
     const describedBy = error
       ? [existingDesc, `${textareaId}-error`].filter(Boolean).join(' ')
       : existingDesc;

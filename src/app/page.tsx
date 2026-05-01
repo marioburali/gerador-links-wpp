@@ -4,10 +4,12 @@ import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Header />
-      <Flow />
+      <main>
+        <Flow />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

@@ -10,7 +10,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ label, id, className = '', children, error, ...rest }, ref) => {
     const autoId = useId();
     const selectId = id ?? autoId;
-    const existingDesc = (rest as any)['aria-describedby'];
+    const existingDesc = rest['aria-describedby'];
     const describedBy = error
       ? [existingDesc, `${selectId}-error`].filter(Boolean).join(' ')
       : existingDesc;

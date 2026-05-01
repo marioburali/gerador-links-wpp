@@ -1,7 +1,8 @@
 'use client';
+import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import Button from '../ui/Button';
 import useClipboard from '../../hooks/useClipboard';
-import copy from '/../../copy.svg';
 
 export default function ResultLink({
   waLink,
@@ -11,6 +12,11 @@ export default function ResultLink({
   onNew?: () => void;
 }) {
   const { copy, copied, error, reset } = useClipboard();
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, []);
 
   const handleCopy = async () => {
     await copy(waLink);
@@ -19,6 +25,14 @@ export default function ResultLink({
   const handleOpen = () => {
     // abrir em nova aba
     window.open(waLink, '_blank', 'noopener,noreferrer');
+  };
+
+  const handlePromoOpen = () => {
+    window.open(
+      'https://www.rdstation.com/produtos/conversas',
+      '_blank',
+      'noopener,noreferrer',
+    );
   };
 
   const handleNew = () => {
@@ -36,14 +50,21 @@ export default function ResultLink({
         >
           ❮ Gerar outro link
         </button>
-        <h2 className="text-2xl font-black tracking-tight text-[#000] py-8">
+        <h1
+          ref={headingRef}
+          tabIndex={-1}
+          className="text-2xl font-black tracking-tight text-[#000] py-8 outline-none"
+        >
           Seu link de WhatsApp foi gerado com sucesso!
-        </h2>
+        </h1>
       </div>
 
-      <pre className="whitespace-pre-wrap break-all rounded-2xl bg-white px-4 py-4 text-base text-[#3A4149] border-[#000] border">
-        {waLink}
-      </pre>
+      <output
+        aria-label="Link de WhatsApp gerado"
+        className="block whitespace-pre-wrap break-all rounded-2xl bg-white px-4 py-4 text-base text-[#3A4149] border-[#000] border"
+      >
+        <code>{waLink}</code>
+      </output>
 
       <div className="flex flex-col sm:flex-row gap-3 mt-10 items-center justify-center">
         <Button
@@ -63,12 +84,18 @@ export default function ResultLink({
           <span className="inline-flex items-center gap-2">
             {copied ? (
               <>
-                <img src="/check.svg" alt="" className="h-4 w-4" />
+                <Image src="/check.svg" alt="" width={16} height={16} />
                 Copiado
               </>
             ) : (
               <>
-                <img src="/copy.svg" alt="" className="h-4 w-4 md:invert" />
+                <Image
+                  src="/copy.svg"
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="md:invert"
+                />
                 Copiar link
               </>
             )}
@@ -85,7 +112,7 @@ export default function ResultLink({
       </div>
       <div className="mt-6 flex-col items-center text-center">
         <Button
-          onClick={handleOpen}
+          onClick={handlePromoOpen}
           variant="ghost"
           className="w-80 sm:w-auto text-lg text-[#005A87]"
         >
@@ -103,6 +130,9 @@ export default function ResultLink({
           {error}
         </p>
       ) : null}
+      <p role="status" aria-live="polite" className="sr-only">
+        {copied ? 'Link copiado para a área de transferência.' : ''}
+      </p>
     </section>
   );
 }
