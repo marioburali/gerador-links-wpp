@@ -4,9 +4,7 @@ type Props = {
 };
 
 export default function PrivacyLink({ href, fontSize = 'text-sm' }: Props) {
-  const url =
-    href ||
-    process.env.NEXT_PUBLIC_PRIVACY_URL || '';
+  const url = href || process.env.NEXT_PUBLIC_PRIVACY_URL || '';
 
   return (
     <a

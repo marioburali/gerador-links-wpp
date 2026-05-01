@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Input from '../ui/Input';
 import PhoneInput from '../ui/PhoneInput';
@@ -9,7 +9,7 @@ import Button from '../ui/Button';
 import PrivacyLink from '../PrivacyLink';
 import RadialBackground from '@/components/ui/RadialBackground';
 import useWhatsAppForm from '../../hooks/useWhatsAppForm';
-import { JOB_ROLES, JobRole, FormData as FormDataType } from '../../types/form';
+import { jobRoles, JobRole, FormData as FormDataType } from '../../types/form';
 import {
   normalizePhone,
   PHONE_DIGITS_REGEX,
@@ -109,7 +109,7 @@ export default function FormArea({ onSuccess }: Props) {
                 required: 'Informe o telefone',
                 pattern: {
                   value: PHONE_FORMAT_REGEX,
-                  message: 'Formato de telefone invalido',
+                  message: 'Formato de telefone inválido',
                 },
                 validate: (v) =>
                   PHONE_DIGITS_REGEX.test(normalizePhone(v)) ||
@@ -139,14 +139,14 @@ export default function FormArea({ onSuccess }: Props) {
               {...register('role', {
                 required: 'Selecione um cargo',
                 validate: (v) =>
-                  JOB_ROLES.includes(v as JobRole)
+                  jobRoles.includes(v as JobRole)
                     ? true
                     : 'Selecione um cargo valido',
               })}
               error={errors.role?.message ?? null}
             >
               <option value="">Selecione</option>
-              {JOB_ROLES.map((r) => (
+              {jobRoles.map((r) => (
                 <option key={r} value={r}>
                   {r}
                 </option>
@@ -164,15 +164,15 @@ export default function FormArea({ onSuccess }: Props) {
           <p className="mx-auto max-w-[660px] text-center text-xs leading-5 text-black">
             Ao preencher o formulário, concordo em receber comunicações de
             acordo com meus interesses. Ao informar meus dados, eu concordo com
-            a <PrivacyLink fontSize="text-xs" />. *Você pode alterar suas permissões de comunicação
-            a qualquer tempo.
+            a <PrivacyLink fontSize="text-xs" />. *Você pode alterar suas
+            permissões de comunicação a qualquer tempo.
           </p>
 
-          <div className="relative flex flex-wrap items-center justify-center gap-3 pt-1 pb-10">
+          <div className="relative flex flex-col items-center justify-center gap-3 pt-1 pb-10 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
             <Button
               type="submit"
               disabled={loading}
-              className="relative z-10"
+              className="relative z-10 w-auto min-w-[180px]"
             >
               {loading ? 'Gerando link...' : 'Gerar link gratis ➔'}
             </Button>
@@ -180,7 +180,7 @@ export default function FormArea({ onSuccess }: Props) {
               type="button"
               variant="ghost"
               onClick={() => reset()}
-              className="relative z-10"
+              className="relative z-10 w-auto min-w-[180px]"
             >
               Limpar formulário
             </Button>

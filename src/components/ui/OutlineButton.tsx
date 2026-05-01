@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
 
 type OutlineButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 

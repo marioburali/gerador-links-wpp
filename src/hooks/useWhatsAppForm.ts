@@ -35,7 +35,7 @@ export default function useWhatsAppForm() {
         return { ok: false, status: res.status, error: msg };
       }
 
-      // Gera link do WhatsApp ou erro se telefone inválido
+      // Gera link do WhatsApp ou erro se o telefone for inválido
       try {
         const link = buildWhatsAppLink(data.phoneRaw, data.message);
         setWaLink(link);

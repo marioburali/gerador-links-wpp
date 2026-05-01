@@ -1,6 +1,5 @@
 'use client';
-import React, { useState } from 'react';
-import Header from './Header';
+import { useState } from 'react';
 import FormStep from './FormStep';
 import ResultStep from './ResultStep';
 
@@ -16,10 +15,6 @@ export default function Flow() {
 
   return (
     <div className="min-h-screen py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16">
-      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14">
-        <Header />
-      </div>
-
       {!waLink ? (
         <FormStep key={formKey} onSuccess={handleSuccess} />
       ) : (

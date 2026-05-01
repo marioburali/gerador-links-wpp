@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes, forwardRef, useId } from 'react';
+import { TextareaHTMLAttributes, forwardRef, useId } from 'react';
 
 type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   label?: string;
@@ -17,7 +17,10 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="flex flex-col gap-1">
         {label ? (
-          <label htmlFor={textareaId} className="text-base font-semibold text-[#111111]">
+          <label
+            htmlFor={textareaId}
+            className="text-base font-semibold text-[#111111]"
+          >
             {label}
           </label>
         ) : null}

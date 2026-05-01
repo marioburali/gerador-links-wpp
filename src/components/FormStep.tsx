@@ -1,4 +1,3 @@
-import React from 'react';
 import FormArea from './form/FormArea';
 import SalesContentArea from './form/SalesContentArea';
 import MessageGuide from './form/MessageGuide';

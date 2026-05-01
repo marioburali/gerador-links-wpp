@@ -1,13 +1,13 @@
+import Header from '@/components/Header';
 import Flow from '../components/Flow';
 import Footer from '../components/Footer';
 
 export default function Home() {
   return (
     <main>
+      <Header />
       <Flow />
-      <div className="mt-6 flex justify-center">
-        <Footer />
-      </div>
+      <Footer />
     </main>
   );
 }
