@@ -1,9 +1,4 @@
-import React, {
-  SelectHTMLAttributes,
-  forwardRef,
-  ReactNode,
-  useId,
-} from 'react';
+import { SelectHTMLAttributes, forwardRef, ReactNode, useId } from 'react';
 
 type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   label?: string;
@@ -23,7 +18,10 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className="flex flex-col gap-1">
         {label ? (
-          <label htmlFor={selectId} className="text-base font-semibold text-[#111111]">
+          <label
+            htmlFor={selectId}
+            className="text-base font-semibold text-[#111111]"
+          >
             {label}
           </label>
         ) : null}

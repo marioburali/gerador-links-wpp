@@ -15,7 +15,9 @@ const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
     const describedBy = error
       ? [existingDesc, `${inputId}-error`].filter(Boolean).join(' ')
       : existingDesc;
-    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
+      event,
+    ) => {
       event.target.value = formatPhoneDisplay(event.target.value);
       onChange?.(event);
     };
@@ -23,7 +25,10 @@ const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
     return (
       <div className="flex flex-col gap-1">
         {label ? (
-          <label htmlFor={inputId} className="text-base font-semibold text-[#111111]">
+          <label
+            htmlFor={inputId}
+            className="text-base font-semibold text-[#111111]"
+          >
             {label}
           </label>
         ) : null}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import OutlineButton from '../ui/OutlineButton';
 import DropdownItem from '../ui/DropdownItem';
 

@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import Button from './ui/Button';
 import useClipboard from '../hooks/useClipboard';
 
@@ -44,7 +43,9 @@ export default function ResultStep({ waLink, onNew }: Props) {
       </div>
 
       <div className="flex flex-wrap items-center gap-3">
-        <Button onClick={handleCopy}>{copied ? 'Copiado' : 'Copiar link'}</Button>
+        <Button onClick={handleCopy}>
+          {copied ? 'Copiado' : 'Copiar link'}
+        </Button>
         <Button onClick={handleOpen} variant="ghost">
           Abrir no WhatsApp
         </Button>
