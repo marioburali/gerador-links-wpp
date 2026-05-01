@@ -109,7 +109,7 @@ export default function FormArea({ onSuccess }: Props) {
                 required: 'Informe o telefone',
                 pattern: {
                   value: PHONE_FORMAT_REGEX,
-                  message: 'Formato de telefone invalido',
+                  message: 'Formato de telefone inválido',
                 },
                 validate: (v) =>
                   PHONE_DIGITS_REGEX.test(normalizePhone(v)) ||

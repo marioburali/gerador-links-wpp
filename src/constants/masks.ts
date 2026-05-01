@@ -9,29 +9,19 @@ export const formatPhoneDisplay = (input: string) => {
   }
 
   const ddd = digits.slice(0, 2);
-  const firstDigit = digits.slice(2, 3);
-  const middle = digits.slice(3, 7);
-  const last = digits.slice(7, 11);
+  const isLongNumber = digits.length === 11;
 
-  let formatted = `(${ddd}`;
-
-  if (digits.length >= 2) {
-    formatted += ')';
+  if (isLongNumber) {
+    // Para 11 dígitos: (XX) XXXXX-XXXX
+    const firstPart = digits.slice(2, 7);
+    const lastPart = digits.slice(7, 11);
+    return `(${ddd}) ${firstPart}-${lastPart}`;
+  } else {
+    // Para 10 dígitos: (XX) XXXX-XXXX
+    const firstPart = digits.slice(2, 6);
+    const lastPart = digits.slice(6, 10);
+    return `(${ddd}) ${firstPart}-${lastPart}`;
   }
-
-  if (firstDigit) {
-    formatted += ` ${firstDigit}`;
-  }
-
-  if (middle) {
-    formatted += ` ${middle}`;
-  }
-
-  if (last) {
-    formatted += `-${last}`;
-  }
-
-  return formatted;
 };
 
 // Aceita formatos: (00) 0000-0000 ou (00) 00000-0000, com ou sem parênteses/espaco
