@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Header from './Header';
 import FormStep from './FormStep';
 import ResultStep from './ResultStep';
 

@@ -168,15 +168,19 @@ export default function FormArea({ onSuccess }: Props) {
             permissões de comunicação a qualquer tempo.
           </p>
 
-          <div className="relative flex flex-wrap items-center justify-center gap-3 pt-1 pb-10">
-            <Button type="submit" disabled={loading} className="relative z-10">
+          <div className="relative flex flex-col items-center justify-center gap-3 pt-1 pb-10 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+            <Button
+              type="submit"
+              disabled={loading}
+              className="relative z-10 w-auto min-w-[180px]"
+            >
               {loading ? 'Gerando link...' : 'Gerar link gratis ➔'}
             </Button>
             <Button
               type="button"
               variant="ghost"
               onClick={() => reset()}
-              className="relative z-10"
+              className="relative z-10 w-auto min-w-[180px]"
             >
               Limpar formulário
             </Button>
