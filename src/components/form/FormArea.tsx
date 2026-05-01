@@ -172,7 +172,7 @@ export default function FormArea({ onSuccess }: Props) {
             <Button
               type="submit"
               disabled={loading}
-              className="relative z-10 min-w-[220px]"
+              className="relative z-10"
             >
               {loading ? 'Gerando link...' : 'Gerar link gratis ➔'}
             </Button>
