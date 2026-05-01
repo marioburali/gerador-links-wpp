@@ -1,7 +1,40 @@
 // Máscaras e regex para validação/normalização do número de telefone.
-export const PHONE_DISPLAY_MASK = "(99) 99999-9999";
+export const PHONE_DISPLAY_MASK = "(00) 0 0000-0000";
 
-// Aceita formatos: (99) 9999-9999 ou (99) 99999-9999, com ou sem parênteses/espaco
+export const formatPhoneDisplay = (input: string) => {
+	const digits = normalizePhone(input).slice(0, 11);
+
+	if (!digits) {
+		return '';
+	}
+
+	const ddd = digits.slice(0, 2);
+	const firstDigit = digits.slice(2, 3);
+	const middle = digits.slice(3, 7);
+	const last = digits.slice(7, 11);
+
+	let formatted = `(${ddd}`;
+
+	if (digits.length >= 2) {
+		formatted += ')';
+	}
+
+	if (firstDigit) {
+		formatted += ` ${firstDigit}`;
+	}
+
+	if (middle) {
+		formatted += ` ${middle}`;
+	}
+
+	if (last) {
+		formatted += `-${last}`;
+	}
+
+	return formatted;
+};
+
+// Aceita formatos: (00) 0000-0000 ou (00) 00000-0000, com ou sem parênteses/espaco
 // Aceita variações comuns:
 // - opcional prefixo de país (+55 ou 55)
 // - parênteses opcionais no DDD

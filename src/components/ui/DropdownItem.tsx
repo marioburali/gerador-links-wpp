@@ -16,7 +16,7 @@ export default function DropdownItem({
   return (
     <details open={open} className="rounded-2xl border border-[#00D4FF] p-4">
       <summary
-        className="flex cursor-pointer list-none items-center justify-between gap-2 sm:gap-3 md:gap-4 font-semibold text-xs sm:text-sm md:text-base text-[#0F1E2D]"
+        className="flex cursor-pointer list-none items-center justify-between gap-2 sm:gap-3 md:gap-4 font-semibold text-xl text-[#000]"
         onClick={(event) => {
           event.preventDefault();
           onToggle();
@@ -39,7 +39,7 @@ export default function DropdownItem({
           />
         </svg>
       </summary>
-      <div className="mt-2 text-sm leading-6 text-[#445466]">{children}</div>
+      <div className="mt-6 text-base leading-6 text-[#000]">{children}</div>
     </details>
   );
 }
