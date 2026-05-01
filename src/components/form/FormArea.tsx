@@ -9,7 +9,7 @@ import Select from '../ui/Select';
 import Textarea from '../ui/Textarea';
 import Button from '../ui/Button';
 import PrivacyLink from '../PrivacyLink';
-import RadialBackground from '@/components/ui/RadialBackground';
+import RadialBackground from '../ui/RadialBackground';
 import useWhatsAppForm from '../../hooks/useWhatsAppForm';
 import {
   buildSubmissionPayload,

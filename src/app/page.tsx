@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import Header from '../components/Header';
 import Flow from '../components/Flow';
 import Footer from '../components/Footer';
 
