@@ -68,7 +68,7 @@ export default function SalesContentArea() {
             <h3 className="text-lg xl:text-xl py-2 font-bold text-[#000]">
               {card.title}
             </h3>
-            <p className="mt-1 text-sm text-[#3A4149] leading-5 xl:leading-6">
+            <p className="mt-1 text-sm text-[#3A4149]">
               {card.description}
             </p>
           </div>
@@ -88,12 +88,12 @@ export default function SalesContentArea() {
         <h2 className="text-[32px] md:text-5xl font-bold text-[#000] text-left lg:max-w-[10ch]">
           Acelere suas conversas com o{' '}
           <span className="relative inline-block whitespace-nowrap">
-            Gerador de link de
-            <span className="absolute left-0 bottom-0.5 sm:bottom-1 md:bottom-2 -z-10 h-2 sm:h-2.5 md:h-3 lg:h-4 w-full rounded-full bg-[#7BEFFF]" />
+            <span className="relative z-10">Gerador de link de</span>
+            <span className="absolute -left-[6px] -right-[6px] bottom-0 -z-10 rounded-[8px] bg-[#7BEFFF]" style={{ height: '0.5em' }} />
           </span>{' '}
           <span className="relative inline-block">
-            WhatsApp
-            <span className="absolute left-0 bottom-0.5 sm:bottom-1 md:bottom-2 -z-10 h-2 sm:h-2.5 md:h-3 lg:h-4 w-full rounded-full bg-[#C3F628]" />
+            <span className="relative z-10">WhatsApp</span>
+            <span className="absolute -left-[6px] -right-[6px] bottom-0 -z-10 rounded-[8px] bg-[#C3F628]" style={{ height: '0.5em' }} />
           </span>
         </h2>
 

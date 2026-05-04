@@ -41,7 +41,7 @@ export default function ResultLink({
   };
 
   return (
-    <section>
+    <section >
       <div>
         <button
           type="button"
@@ -66,51 +66,58 @@ export default function ResultLink({
         <code>{waLink}</code>
       </output>
 
-      <div className="flex flex-col sm:flex-row gap-3 mt-10 items-center justify-center">
-        <Button
-          onClick={handleCopy}
-          variant="white"
-          className={`
-    w-50 sm:w-auto
-    md:!bg-[#003D5C] md:!text-white md:!border-transparent md:hover:!bg-[#0f1721]
+      <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-10 items-center justify-center xl:flex-row xl:justify-start">
+        {/* Grupo esquerda — sempre junto */}
+        <div className="flex flex-col sm:flex-row gap-3 items-center">
+          <Button
+            onClick={handleCopy}
+            variant={copied ? 'copied' : 'white'}
+            className="w-50 sm:w-auto md:!bg-[#003D5C] md:!text-white md:!border-transparent md:hover:!bg-[#0f1721]"
+          >
+            <span className="inline-flex items-center gap-2">
+              {copied ? (
+                <>
+                  <Image src="/check.svg" alt="" width={16} height={16} />
+                  Link copiado
+                </>
+              ) : (
+                <>
+                  <Image
+                    src="/copy.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="md:invert"
+                  />
+                  Copiar link
+                </>
+              )}
+            </span>
+          </Button>
 
-    ${
-      copied
-        ? '!bg-[#003D5C] !text-white !border-transparent hover:!bg-[#003D5C] md:hover:!bg-[#003D5C]'
-        : ''
-    }
-  `}
-        >
-          <span className="inline-flex items-center gap-2">
-            {copied ? (
-              <>
-                <Image src="/check.svg" alt="" width={16} height={16} />
-                Copiado
-              </>
-            ) : (
-              <>
-                <Image
-                  src="/copy.svg"
-                  alt=""
-                  width={16}
-                  height={16}
-                  className="md:invert"
-                />
-                Copiar link
-              </>
-            )}
-          </span>
-        </Button>
+          <Button
+            onClick={handleOpen}
+            variant="ghost"
+            className="w-50 sm:w-auto text-[#005A87]"
+          >
+            Abrir no WhatsApp
+          </Button>
+        </div>
 
-        <Button
-          onClick={handleOpen}
-          variant="ghost"
-          className="w-50 sm:w-auto text-[#005A87]"
-        >
-          Abrir no WhatsApp
-        </Button>
+        {/* Versão desktop */}
+        <div className="hidden xl:block ml-auto">
+          <Button
+            onClick={handlePromoOpen}
+            variant="ghost"
+            className=" xl:inline-flex ml-auto w-auto text-lg !text-[#000] bg-white border border-[#000] hover:bg-gray-50"
+          >
+            Adicione um Botão de WhatsApp no site ➔
+          </Button>
+        </div>
       </div>
-      <div className="mt-6 flex-col items-center text-center">
+
+      {/* Versão mobile/tablet */}
+      <div className="mt-4 flex flex-col items-center text-center xl:hidden">
         <Button
           onClick={handlePromoOpen}
           variant="ghost"
@@ -118,12 +125,12 @@ export default function ResultLink({
         >
           Adicione um Botão de WhatsApp no site
         </Button>
-
-        <p className="mt-4 text-base text-[#000]">
-          Faça isso com o teste grátis do{' '}
-          <span className="font-bold">RD Station Marketing</span>
-        </p>
       </div>
+
+      <p className="mt-10 text-base text-[#000] text-center !xl:text-left">
+        Faça isso com o teste grátis do{' '}
+        <span className="font-bold">RD Station Marketing</span>
+      </p>
 
       {error ? (
         <p role="alert" className="text-sm text-red-600">
