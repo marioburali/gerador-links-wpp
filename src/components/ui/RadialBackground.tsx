@@ -13,17 +13,17 @@ export default function RadialBackground({
 }: RadialBackgroundProps) {
   const firstGradient = invertOnMd
     ? `
-      bg-[radial-gradient(circle_at_0%_70%,rgba(126,231,255,0.55),transparent_48%)]
-      md:bg-[radial-gradient(circle_at_0%_70%,rgba(216,241,114,0.55),transparent_48%)]
+      [background:radial-gradient(31.29%_53.63%_at_0%_65.34%,#7BEFFF_0%,transparent_100%)]
+      md:[background:radial-gradient(31.29%_53.63%_at_100%_65.34%,#7BEFFF_0%,transparent_100%)]
     `
-    : `bg-[radial-gradient(circle_at_0%_70%,rgba(126,231,255,0.55),transparent_48%)]`;
+    : `[background:radial-gradient(31.29%_53.63%_at_0%_65.34%,#7BEFFF_0%,transparent_100%)]`;
 
   const secondGradient = invertOnMd
     ? `
-      bg-[radial-gradient(circle_at_100%_55%,rgba(216,241,114,0.45),transparent_50%)]
-      md:bg-[radial-gradient(circle_at_100%_55%,rgba(126,231,255,0.50),transparent_50%)]
+      [background:radial-gradient(29.71%_69.22%_at_100%_43.65%,rgba(195,246,40,0.2)_0%,transparent_100%)]
+      md:[background:radial-gradient(29.71%_69.22%_at_0%_43.65%,rgba(195,246,40,0.2)_0%,transparent_100%)]
     `
-    : `bg-[radial-gradient(circle_at_100%_55%,rgba(216,241,114,0.45),transparent_50%)]`;
+    : `[background:radial-gradient(29.71%_69.22%_at_100%_43.65%,rgba(195,246,40,0.2)_0%,transparent_100%)]`;
 
   return (
     <section

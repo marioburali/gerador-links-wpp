@@ -11,9 +11,9 @@ export default function Header() {
           height={48}
           className="h-10 w-auto mx-auto md:mx-0 md:h-12"
         />
-        <span className="hidden md:inline text-xl font-semibold text-[#111111]">
+        <h2 className="hidden md:inline text-xl font-semibold text-[#111111]">
           Gerador link do WhatsApp
-        </span>
+        </h2>
       </div>
     </header>
   );

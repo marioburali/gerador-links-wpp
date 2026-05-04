@@ -39,7 +39,7 @@ export default function DropdownItem({
           />
         </svg>
       </summary>
-      <div className="mt-6 text-base leading-6 text-[#000]">{children}</div>
+      <div className="mt-6 text-base text-[#000]">{children}</div>
     </details>
   );
 }

@@ -18,9 +18,7 @@ export default function Flow() {
       {!waLink ? (
         <FormStep key={formKey} onSuccess={handleSuccess} />
       ) : (
-        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14">
-          <ResultStep waLink={waLink} onNew={handleNew} />
-        </div>
+        <ResultStep waLink={waLink} onNew={handleNew} />
       )}
     </div>
   );
