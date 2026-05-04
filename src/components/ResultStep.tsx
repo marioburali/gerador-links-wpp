@@ -28,7 +28,7 @@ export default function ResultStep({ waLink, onNew }: Props) {
           width={328}
           height={328}
           aria-hidden="true"
-          className="pointer-events-none absolute -right-2 -top-14 h-[94.48227438326175px] w-[93.55597435926941px] transform:rotate-[12.76deg] md:-right-22 md:-top-26 md:h-[152.39289447363876px] md:w-[150.89884544143132px] lg:-right-30 lg:top-1/2 lg:h-[2238px] lg:w-[238px] lg:-translate-y-1/2 xl:-right-30 xl:top-1/2 xl:h-[328px] xl:w-[328px] xl:-translate-y-1/2 2xl:h-[490px] 2xl:w-[490px] z-0"
+          className="pointer-events-none absolute -right-2 -top-14 h-[94.48227438326175px] w-[93.55597435926941px] transform:rotate-[12.76deg] md:-right-22 md:-top-26 md:h-[152.39289447363876px] md:w-[150.89884544143132px] lg:-right-30 lg:top-1/2 lg:h-[238px] lg:w-[238px] lg:-translate-y-1/2 xl:-right-30 xl:top-1/2 xl:h-[328px] xl:w-[328px] xl:-translate-y-1/2 2xl:h-[490px] 2xl:w-[490px] z-0"
         />
       </RadialBackground>
     </div>

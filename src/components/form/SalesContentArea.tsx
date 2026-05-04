@@ -68,9 +68,7 @@ export default function SalesContentArea() {
             <h3 className="text-lg xl:text-xl py-2 font-bold text-[#000]">
               {card.title}
             </h3>
-            <p className="mt-1 text-sm text-[#3A4149]">
-              {card.description}
-            </p>
+            <p className="mt-1 text-sm text-[#3A4149]">{card.description}</p>
           </div>
         ))}
         <div className="h-[226px] overflow-hidden rounded-lg border-2 border-[#7BEFFF] bg-white">
@@ -89,11 +87,17 @@ export default function SalesContentArea() {
           Acelere suas conversas com o{' '}
           <span className="relative inline-block whitespace-nowrap">
             <span className="relative z-10">Gerador de link de</span>
-            <span className="absolute -left-[6px] -right-[6px] bottom-0 -z-10 rounded-[8px] bg-[#7BEFFF]" style={{ height: '0.5em' }} />
+            <span
+              className="absolute -left-[6px] -right-[6px] bottom-0 -z-10 rounded-[8px] bg-[#7BEFFF]"
+              style={{ height: '0.5em' }}
+            />
           </span>{' '}
           <span className="relative inline-block">
             <span className="relative z-10">WhatsApp</span>
-            <span className="absolute -left-[6px] -right-[6px] bottom-0 -z-10 rounded-[8px] bg-[#C3F628]" style={{ height: '0.5em' }} />
+            <span
+              className="absolute -left-[6px] -right-[6px] bottom-0 -z-10 rounded-[8px] bg-[#C3F628]"
+              style={{ height: '0.5em' }}
+            />
           </span>
         </h2>
 
@@ -158,7 +162,7 @@ export default function SalesContentArea() {
             scrollToForm
             className="mt-8 sm:mt-10 md:mt-12 lg:mt-14"
           >
-            {'Gere seu link gratis ➔'}
+            {'Gere seu link grátis ➔'}
           </Button>
         </div>
       </div>

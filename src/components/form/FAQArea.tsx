@@ -13,7 +13,7 @@ const faqItems = [
   {
     question: 'Onde posso usar o link do WhatsApp?',
     answer:
-      'O seu link de Whatsapp pode ser usado no link da bio das suas redes sociais, em mensagens de email, chats e qualquer que você possa usar para compartilhar o link direto para o seu WhatsApp.',
+      'O seu link de WhatsApp pode ser usado no link da bio das suas redes sociais, em mensagens de e-mail, chats e qualquer canal em que você possa compartilhar o link direto para o seu WhatsApp.',
   },
   {
     question: 'Quais as vantagens de ter um link do seu WhatsApp?',
@@ -23,7 +23,7 @@ const faqItems = [
   {
     question: 'Como gerar link para WhatsApp?',
     answer:
-      'Para gerar o seu link no WhatsApp usando o gerador, basta acessar a ferramenta, preencher o seu número de WhatsApp e inserir o seu email e o seu cargo. Depois, caso queira, crie uma mensagem que vai facilitar a interação com seus contatos. As informações de email e cargo não aparecem para quem acessar o seu link de WhatsApp, apenas o seu número e mensagem são compartilhados.',
+      'Para gerar o seu link no WhatsApp usando o gerador, basta acessar a ferramenta, preencher o seu número de WhatsApp e inserir o seu e-mail e o seu cargo. Depois, caso queira, crie uma mensagem que vai facilitar a interação com seus contatos. As informações de e-mail e cargo não aparecem para quem acessar o seu link de WhatsApp, apenas o seu número e mensagem são compartilhados.',
   },
 ];
 

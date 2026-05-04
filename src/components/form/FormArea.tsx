@@ -51,8 +51,8 @@ export default function FormArea({ onSuccess }: Props) {
 
   return (
     <div className="mx-auto w-full overflow-hidden">
-      <RadialBackground className="pb:0 lg:px-10 lg:py-14 xl:py-16 2xl:py-18 overflow-visible">
-        <div id="form-area" className="relative z-10 lg:px-30 xl:px-50 z-10">
+      <RadialBackground className="pb-0 lg:px-10 lg:py-14 xl:py-16 2xl:py-18 overflow-visible">
+        <div id="form-area" className="relative lg:px-30 xl:px-50 z-10">
           <h1 className="text-heading-md text-[#0A0A0A] lg:text-[40px] xl:text-[48px]">
             Gerador de Link para WhatsApp
           </h1>
@@ -90,7 +90,7 @@ export default function FormArea({ onSuccess }: Props) {
                 name="phone"
                 render={({ field, fieldState }) => (
                   <PhoneInput
-                    label="Numero do WhatsApp*"
+                    label="Número do WhatsApp*"
                     required
                     aria-required="true"
                     {...field}
@@ -134,7 +134,7 @@ export default function FormArea({ onSuccess }: Props) {
               {...register('message')}
             />
 
-          <p className="mx-auto max-w-[660px] text-center text-xs text-black">
+            <p className="mx-auto max-w-[660px] text-center text-xs text-black">
               Ao preencher o formulário, concordo em receber comunicações de
               acordo com meus interesses. Ao informar meus dados, eu concordo
               com a <PrivacyLink fontSize="text-xs" />. *Você pode alterar suas
@@ -147,7 +147,7 @@ export default function FormArea({ onSuccess }: Props) {
                 disabled={loading}
                 className="relative z-10 w-auto min-w-[180px]"
               >
-                {loading ? 'Gerando link...' : 'Gerar link gratis ➔'}
+                {loading ? 'Gerando link...' : 'Gerar link grátis ➔'}
               </Button>
               <Button
                 type="button"
