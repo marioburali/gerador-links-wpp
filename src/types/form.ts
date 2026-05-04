@@ -38,7 +38,7 @@ const roleSchema = z
 export const formSchema = z.object({
   name: z.string().trim().min(2, 'Informe pelo menos 2 caracteres'),
   phone: phoneSchema,
-  email: z.string().trim().email('Informe um email válido'),
+  email: z.string().trim().email('Informe um e-mail válido'),
   role: roleSchema,
   message: z.string().trim().optional().default(''),
 });
