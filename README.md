@@ -1,5 +1,7 @@
 # Gerador de Link para WhatsApp
 
+⚠️ ATENÇÃO! Siga o passo a passo do readme para rodar o projeto. Sem as variáveis de ambiente não é possível terminar o fluxo da aplicação.
+
 Aplicação web para gerar links personalizados do WhatsApp no formato `https://wa.me/55XXXXXXXXXX?text=Mensagem%20Formatada`.
 
 O projeto foi desenvolvido como desafio técnico, seguindo o layout proposto no Figma e priorizando responsividade, validação de formulário, acessibilidade, HTML semântico e boas práticas de SEO.
