@@ -136,7 +136,3 @@ src/
 - Erros anunciados com `role="alert"`.
 - Feedback de cópia anunciado com `role="status"` e `aria-live`.
 - Foco movido para a tela de resultado após a geração do link.
-
-## Documentação Técnica
-
-Para estudar o código com mais detalhe, consulte: [docs/SPEC.md](docs/SPEC.md)
